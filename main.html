@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Snap - Gen Z Vocabulary</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #add8e6, #ffb6c1);
+      color: #4B0082;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 20px;
+      animation: bgAnimation 10s infinite alternate;
+    }
+
+    @keyframes bgAnimation {
+      0% {
+        background: linear-gradient(to right, #add8e6, #ffb6c1);
+      }
+      50% {
+        background: linear-gradient(to right, #ffb6c1, #add8e6);
+      }
+      100% {
+        background: linear-gradient(to right, #add8e6, #ffb6c1);
+      }
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      text-shadow: 3px 3px #ff1493;
+      margin-bottom: 10px;
+      animation: titleSlide 1.5s ease-out;
+    }
+
+    @keyframes titleSlide {
+      0% {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .tagline {
+      font-size: 1.5rem;
+      font-weight: bold;
+      background: linear-gradient(to right, #800080, #ff69b4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 10px 0;
+      animation: fadeInPop 1.5s ease-out;
+    }
+
+    .tagline.secondary {
+      background: linear-gradient(to right, #ff69b4, #800080);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes fadeInPop {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .game-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .game-card {
+      width: 250px;
+      padding: 15px;
+      text-align: center;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      position: relative;
+      animation: popIn 1s ease;
+    }
+
+    .game-card:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+      animation: cardHover 0.5s;
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes cardHover {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .game-card h2 {
+      font-size: 1.8rem;
+      margin: 10px 0;
+    }
+
+    .game-card p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .daily-challenges {
+      width: 100%;
+      max-width: 600px;
+      padding: 15px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .daily-challenges h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .daily-word {
+      font-size: 1.5rem;
+      color: #ff1493;
+      margin: 5px 0;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9rem;
+      color: #4B0082;
+      animation: fadeIn 2s ease;
+    }
+  </style>
+</head>
+<body>
+  <p class="tagline">SERVING FRESH WORDS 24/7</p>
+  <h1>Word Snap 🚀</h1>
+  <p class="tagline secondary">GLOWUP FOR YOUR VOCAB - NO CAP</p>
+
+  <div class="game-section">
+    <div class="game-card" onclick="startLevel('Match the Following')">
+      <h2>🔥 Match the Vibes</h2>
+      <p>Pair the Gen Z slang with its meaning.</p>
+    </div>
+
+    <div class="game-card" onclick="startLevel('Error Detection')">
+      <h2>😵 Oopsie Check</h2>
+      <p>Spot the mistakes in these slang sentences.</p>
+    </div>
+
+    <div class="game-card" onclick="startLevel('Debating')">
+      <h2>💬 Slang-Off</h2>
+      <p>Debate Gen Z slang topics like a pro.</p>
+    </div>
+  </div>
+
+  <div class="daily-challenges" id="daily-challenges">
+    <h2>🌟 Daily Challenges</h2>
+    <div id="words">
+      <!-- Words will be inserted dynamically -->
+    </div>
+  </div>
+
+  <footer>Word Snap ✨ Learn Gen Z slangs, stay hip!</footer>
+
+  <!-- Linking the external app.js file -->
+  <script src="app.js"></script>
+</body>
+</html>
+
+   
